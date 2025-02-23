@@ -1,17 +1,20 @@
 
+import videoUrl from '../videos/NewVid.mp4';
+
 export default function Index() {
   return (
     <div className="relative min-h-[calc(100vh-4rem)] flex items-center">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      />
+      {/* Background Video */}
+      <video 
+        autoPlay 
+        muted 
+        loop 
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src={videoUrl} type="video/mp4" />
+      </video>
+      
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50 z-0" />
       

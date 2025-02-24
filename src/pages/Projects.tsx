@@ -1,4 +1,4 @@
-
+import coding from '../videos/coding.jpg'
 export default function Projects() {
   return (
     <div className="relative min-h-screen section-padding">
@@ -6,7 +6,7 @@ export default function Projects() {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa')",
+          backgroundImage: `url(${coding})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -25,8 +25,7 @@ export default function Projects() {
             >
               <h3 className="text-xl font-semibold mb-2 text-white">Project {i}</h3>
               <p className="text-white/80">
-                A brief description of this amazing project and its key features.
-              </p>
+              Upcoming...👨‍💻(❁´◡`❁)              </p>
             </div>
           ))}
         </div>

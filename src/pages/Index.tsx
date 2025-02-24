@@ -1,18 +1,16 @@
-
-import videoUrl from '../videos/NewVid.mp4';
-
+import newVid from "../videos/NewVid.mp4";
 export default function Index() {
   return (
     <div className="relative min-h-[calc(100vh-4rem)] flex items-center">
-      {/* Background Video */}
+      {/*Background Video */}
       <video 
-        autoPlay 
-        muted 
-        loop 
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 z-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
       >
-        <source src={videoUrl} type="video/mp4" />
+        <source src={newVid} type="video/mp4" />
+        Your browser does not support the video tag.
       </video>
       
       {/* Overlay */}

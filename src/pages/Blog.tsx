@@ -1,4 +1,3 @@
-
 import coding from '../videos/coding_page.jpg';
 
 export default function Blog() {
@@ -23,7 +22,7 @@ export default function Blog() {
           {[1, 2, 3].map((i) => (
             <article
               key={i}
-              className="group relative overflow-hidden rounded-lg border bg-white/80 p-6 card-hover backdrop-blur-sm"
+              className="group relative overflow-hidden rounded-lg border bg-white/60 p-6 card-hover backdrop-blur-sm"
             >
               <div className="flex justify-between items-start">
                 <div>

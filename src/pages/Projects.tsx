@@ -1,4 +1,5 @@
-import coding from '../videos/coding.jpg'
+
+import coding from '../viedeos/coding.jpg'
 export default function Projects() {
   return (
     <div className="relative min-h-screen section-padding">
@@ -25,7 +26,8 @@ export default function Projects() {
             >
               <h3 className="text-xl font-semibold mb-2 text-white">Project {i}</h3>
               <p className="text-white/80">
-              Upcoming...👨‍💻(❁´◡`❁)              </p>
+                Upcoming...👨‍💻(❁´◡`❁)
+              </p>
             </div>
           ))}
         </div>

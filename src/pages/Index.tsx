@@ -1,4 +1,4 @@
-import newVid from "../videos/NewVid.mp4";
+import newVid from "../viedeos/NewVid.mp4";
 export default function Index() {
   return (
     <div className="relative min-h-[calc(100vh-4rem)] flex items-center">

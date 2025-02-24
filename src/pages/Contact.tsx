@@ -1,10 +1,9 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
 import { Instagram, Linkedin } from "lucide-react";
-import photo from '../videos/contact.jpg'
+import photo from '../viedeos/contact.jpg';
 
 export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {

@@ -37,7 +37,7 @@ export default function Contact() {
         {/* Social Links */}
         <div className="flex gap-4 mb-8">
           <a
-            href="https://instagram.com"
+            href="https://instagram.com/its_hakimn"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -46,7 +46,7 @@ export default function Contact() {
             <span>Instagram</span>
           </a>
           <a
-            href="https://linkedin.com/its_hakimn"
+            href="https://www.linkedin.com/in/hakim-nazary/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"

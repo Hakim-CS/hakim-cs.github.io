@@ -1,5 +1,5 @@
 
-import coding from '../viedeos/coding_page.jpg';
+import coding from '../videos/coding_page.jpg';
 
 export default function Blog() {
   return (

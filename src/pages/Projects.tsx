@@ -1,5 +1,5 @@
 
-import coding from '../viedeos/coding.jpg'
+import coding from '../videos/coding.jpg'
 export default function Projects() {
   return (
     <div className="relative min-h-screen section-padding">

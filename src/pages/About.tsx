@@ -1,5 +1,5 @@
 
-import photo from '../viedeos/me.jpeg'
+import photo from '../videos/me.jpeg'
 export default function About() {
   return (
 <div className="relative min-h-screen section-padding">

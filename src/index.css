@@ -55,7 +55,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
   }
 }
@@ -65,13 +65,47 @@
 }
 
 .section-padding {
-  @apply py-16 px-4 sm:px-6 lg:px-8;
+  @apply py-8 md:py-16 px-4 sm:px-6 lg:px-8;
 }
 
 .card-hover {
-  @apply transition-all duration-300 hover:scale-[1.02];
+  @apply transition-all duration-300 hover:scale-[1.02] md:hover:scale-[1.05];
 }
 
 .nav-link {
   @apply relative text-foreground/90 hover:text-foreground transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-foreground after:transition-all hover:after:w-full;
+}
+
+/* Responsive Utilities */
+@media (max-width: 640px) {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+  p {
+    @apply text-base;
+  }
+}
+
+/* Animations optimized for mobile */
+@media (prefers-reduced-motion) {
+  .animate-fadeIn, 
+  .animate-slideIn, 
+  .animate-float {
+    animation: none !important;
+  }
+}
+
+/* Fix for video backgrounds on mobile */
+@media (max-width: 768px) {
+  video {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
 }

@@ -5,9 +5,10 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: "Crypto Sweeper",
+      title: "Crypto Sweep",
       description: "A blockchain analysis tool that scans wallets for leftover cryptocurrency and helps users recover forgotten funds. Built with React, Ethers.js, and Web3 integration.",
       tags: ["Web3", "Blockchain", "React", "DApp"]
+      link: "https://preview--crypto-sweep.lovable.app/"
     },
     {
       id: 2,

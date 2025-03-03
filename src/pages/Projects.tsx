@@ -12,13 +12,17 @@ export default function Projects() {
     },
     {
       id: 2,
-      title: "Project 2",
-      description: "Upcoming...👨‍💻(❁´◡`❁)"
+      title: "AI Image Generator",
+      description: "A cutting-edge web application that uses machine learning to generate stunning images from text prompts. Leverages OpenAI's DALL-E API with a React frontend and Node.js backend.",
+      tags: ["AI", "Machine Learning", "React", "Node.js"],
+      link: "https://ai-image-generator.example.com"
     },
     {
       id: 3,
-      title: "Project 3",
-      description: "Upcoming...👨‍💻(❁´◡`❁)"
+      title: "Smart Home Dashboard",
+      description: "A comprehensive IoT dashboard that centralizes control of all your smart home devices. Features real-time data visualization, automation rules, and voice commands integration.",
+      tags: ["IoT", "React", "TypeScript", "WebSockets"],
+      link: "https://smart-home-dashboard.example.com"
     }
   ];
 

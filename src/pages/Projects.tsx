@@ -7,7 +7,7 @@ export default function Projects() {
       id: 1,
       title: "Crypto Sweep",
       description: "A blockchain analysis tool that scans wallets for leftover cryptocurrency and helps users recover forgotten funds. Built with React, Ethers.js, and Web3 integration.",
-      tags: ["Web3", "Blockchain", "React", "DApp"]
+      tags: ["Web3", "Blockchain", "React", "DApp"],
       link: "https://preview--crypto-sweep.lovable.app/"
     },
     {
@@ -58,6 +58,16 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
+                )}
+                {project.link && (
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-block mt-4 text-primary hover:text-primary/80 transition-colors"
+                  >
+                    View Project →
+                  </a>
                 )}
               </div>
             ))}

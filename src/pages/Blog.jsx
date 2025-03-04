@@ -3,19 +3,9 @@ import React from 'react';
 import coding from '../videos/coding_page.jpg';
 import { Link } from 'react-router-dom';
 
-// Blog post data structure
-interface BlogPost {
-  id: number;
-  title: string;
-  excerpt: string;
-  content: string;
-  date: string;
-  readTime: string;
-}
-
 export default function Blog() {
   // Blog posts data
-  const blogPosts: BlogPost[] = [
+  const blogPosts = [
     {
       id: 1,
       title: "Exploring AI's Profound Impact on Daily Life",

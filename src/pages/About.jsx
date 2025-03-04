@@ -1,5 +1,6 @@
 
 import photo from '../videos/me.jpeg'
+
 export default function About() {
   return (
     <div className="relative min-h-screen pt-16 md:pt-20">

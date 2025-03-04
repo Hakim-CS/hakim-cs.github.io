@@ -7,7 +7,7 @@ import { Instagram, Linkedin } from "lucide-react";
 import photo from '../videos/contact.jpg';
 
 export default function Contact() {
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     toast({
       title: "Message sent!",

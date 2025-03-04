@@ -26,7 +26,7 @@ export default function Projects() {
       title: "Smart Home Dashboard",
       description: "A comprehensive IoT dashboard that centralizes control of all your smart home devices. Features real-time data visualization, automation rules, and voice commands integration.",
       tags: ["IoT", "React", "TypeScript", "WebSockets"],
-      link: "#"
+     // link: ""
     }
   ];
 

@@ -1,21 +1,25 @@
 
 import coding from '../videos/coding.jpg'
+import project1 from '../videos/project1.png'
+import project2 from '../videos/project2.png'
 
 export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: "Crypto Sweep",
-      description: "A blockchain analysis tool that scans wallets for leftover cryptocurrency and helps users recover forgotten funds. Built with React, Ethers.js, and Web3 integration.",
-      tags: ["Web3", "Blockchain", "React", "DApp"],
-      link: "https://preview--crypto-sweep.lovable.app/"
+      title: "Crypto Trading Platform",
+      description: "A web-based cryptocurrency trading platform where users can buy and sell crypto, follow market news, track portfolios, and analyze market trends in real-time. Built with React, Chart.js, and cryptocurrency APIs.",
+      tags: ["Web3", "Blockchain", "React", "Trading"],
+      link: "https://preview--crypto-sweep.lovable.app/",
+      image: project1
     },
     {
       id: 2,
-      title: "AI Image Generator",
-      description: "A cutting-edge web application that uses machine learning to generate stunning images from text prompts. Leverages OpenAI's DALL-E API with a React frontend and Node.js backend.",
-      tags: ["AI", "Machine Learning", "React", "Node.js"],
-      link: "https://ai-image-generator.example.com"
+      title: "Habit Tracker",
+      description: "A web-based habit tracker application built with Streamlit, designed to help you build better routines through visualization and progress tracking. Access it from any device with a web browser!",
+      tags: ["Python", "Streamlit", "Data Visualization", "Productivity"],
+      link: "https://ai-image-generator.example.com",
+      image: project2
     },
     {
       id: 3,
@@ -50,6 +54,15 @@ export default function Projects() {
                 key={project.id}
                 className="group relative overflow-hidden rounded-lg border bg-black/50 p-4 sm:p-6 card-hover glass backdrop-blur-sm"
               >
+                {project.image && (
+                  <div className="mb-4 overflow-hidden rounded-md h-48">
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                )}
                 <h3 className="text-xl font-semibold mb-2 text-white">{project.title}</h3>
                 <p className="text-white/80 mb-4">
                   {project.description}

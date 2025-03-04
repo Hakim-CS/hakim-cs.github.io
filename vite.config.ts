@@ -23,7 +23,7 @@ export default defineConfig(({ mode }) => ({
     extensions: ['.js', '.jsx', '.ts', '.tsx'], // Support both JS and TS
   },
   build: {
-    outDir: "dist",
+    outDir: "dist", // Ensure we're building to dist folder
     rollupOptions: {
       output: {
         manualChunks: undefined,

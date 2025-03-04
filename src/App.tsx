@@ -22,7 +22,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename="/hakim-cs.github.io">
           <div className="min-h-screen bg-background text-foreground">
             <Nav />
             <main className="pt-16">

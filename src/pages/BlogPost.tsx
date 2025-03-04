@@ -3,8 +3,18 @@ import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import coding from '../videos/coding_page.jpg';
 
-// Blog post data structure (same as in Blog.jsx)
-const blogPosts = [
+// Blog post data structure (same as in Blog.tsx)
+interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string;
+  content: string;
+  date: string;
+  readTime: string;
+}
+
+// Sample blog posts data (should be imported from a shared file in a real app)
+const blogPosts: BlogPost[] = [
   {
     id: 1,
     title: "Exploring AI's Profound Impact on Daily Life",
@@ -80,7 +90,7 @@ const blogPosts = [
 ];
 
 export default function BlogPost() {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   
   // Find the blog post with the matching ID

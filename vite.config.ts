@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/hakim-cs.github.io/", // Set to repository name for GitHub Pages
+  base: "./", // Use relative paths for GitHub Pages
   server: {
     host: "::",
     port: 8080,
@@ -19,15 +19,6 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-    },
-    extensions: ['.js', '.jsx', '.ts', '.tsx'], // Support both JS and TS
-  },
-  build: {
-    outDir: "dist", // Ensure we're building to dist folder
-    rollupOptions: {
-      output: {
-        manualChunks: undefined,
-      },
     },
   },
 }));

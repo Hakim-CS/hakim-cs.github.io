@@ -18,7 +18,7 @@ export default function Projects() {
       title: "Habit Tracker",
       description: "A web-based habit tracker application built with Streamlit, designed to help you build better routines through visualization and progress tracking. Access it from any device with a web browser!",
       tags: ["Python", "Streamlit", "Data Visualization", "Productivity"],
-      link: "https://ai-image-generator.example.com",
+      link: "https://track-habit.streamlit.app/",
       image: project2
     },
     {
@@ -26,7 +26,7 @@ export default function Projects() {
       title: "Smart Home Dashboard",
       description: "A comprehensive IoT dashboard that centralizes control of all your smart home devices. Features real-time data visualization, automation rules, and voice commands integration.",
       tags: ["IoT", "React", "TypeScript", "WebSockets"],
-      link: "https://smart-home-dashboard.example.com"
+      link: ""
     }
   ];
 

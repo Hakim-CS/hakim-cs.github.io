@@ -34,7 +34,7 @@ jobs:
       - name: Build with Vite
         run: npm run build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v1
         with:
           path: ./dist
 

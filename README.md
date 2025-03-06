@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://preview--hakim.lovable.app/
+**URL**: https://hakim-nazari.netlify.app
 
 ## How can I edit this code?
 

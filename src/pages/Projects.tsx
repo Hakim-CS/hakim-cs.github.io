@@ -2,6 +2,7 @@
 import coding from '../videos/coding.jpg'
 import project1 from '../videos/project1.png'
 import project2 from '../videos/project2.png'
+import project3 from '../videos/project3.png'
 
 export default function Projects() {
   const projects = [
@@ -23,10 +24,11 @@ export default function Projects() {
     },
     {
       id: 3,
-      title: "Smart Home Dashboard",
-      description: "A comprehensive IoT dashboard that centralizes control of all your smart home devices. Features real-time data visualization, automation rules, and voice commands integration.",
-      tags: ["IoT", "React", "TypeScript", "WebSockets"],
-      link: "#"
+      title: "Pollify - Real-time Voting System",
+      description: "A real-time polling and voting application where users can create polls and gather votes instantly. Features live results, multiple voting options, and shareable poll links for easy distribution.",
+      tags: ["React", "Real-time", "Firebase", "Collaborative"],
+      link: "https://preview--pollify-360.lovable.app/",
+      image: project3
     }
   ];
 

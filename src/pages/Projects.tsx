@@ -11,7 +11,7 @@ export default function Projects() {
       title: "Crypto Trading Platform",
       description: "A web-based cryptocurrency trading platform where users can buy and sell crypto, follow market news, track portfolios, and analyze market trends in real-time. Built with React, Chart.js, and cryptocurrency APIs.",
       tags: ["Web3", "Blockchain", "React", "Trading"],
-      link: "https://preview--crypto-sweep.lovable.app/",
+      link: "https://crypto-sweep.netlify.app/",
       image: project1
     },
     {

@@ -27,7 +27,7 @@ export default function Projects() {
       title: "Pollify - Real-time Voting System",
       description: "A real-time polling and voting application where users can create polls and gather votes instantly. Features live results, multiple voting options, and shareable poll links for easy distribution.",
       tags: ["React", "Real-time", "Firebase", "Collaborative"],
-      link: "https://preview--pollify-360.lovable.app/",
+      link: "https://e-poll.netlify.app",
       image: project3
     }
   ];

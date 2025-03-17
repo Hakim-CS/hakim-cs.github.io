@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
-import { Instagram, Linkedin } from "lucide-react";
+import { Github, Instagram, Linkedin } from "lucide-react";
 import photo from '../videos/contact.jpg';
 
 export default function Contact() {
@@ -83,6 +83,15 @@ export default function Contact() {
             >
               <Linkedin className="h-5 w-5" />
               <span>LinkedIn</span>
+            </a>
+            <a
+              href="https://github.com/hakim-cs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+            >
+              <Github className="h-5 w-5" />
+              <span>GitHub</span>
             </a>
           </div>
 

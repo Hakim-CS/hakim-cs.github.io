@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 // Blog post data structure
 interface BlogPost {
-  id: number;
+  id: number;   
   title: string;
   excerpt: string;
   content: string;

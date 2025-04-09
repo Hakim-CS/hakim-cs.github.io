@@ -5,6 +5,7 @@ import project2 from '../videos/project2.png'
 import project3 from '../videos/project3.png'
 
 export default function Projects() {
+  //project 1
   const projects = [
     {
       id: 1,

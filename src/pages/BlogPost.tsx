@@ -14,6 +14,7 @@ interface BlogPost {
 }
 
 // Sample blog posts data (should be imported from a shared file in a real app)
+// blog 1
 const blogPosts: BlogPost[] = [
   {
     id: 1,

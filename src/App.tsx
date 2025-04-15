@@ -27,6 +27,7 @@ const App = () => (
             <Nav />
             <main className="pt-16">
               <Routes>
+                
                 <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/projects" element={<Projects />} />

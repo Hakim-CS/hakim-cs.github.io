@@ -24,7 +24,6 @@ export default function About() {
               <br></br>
               Currently, I'm preparing for the <em>TOEFL iBT</em> to expand my global opportunities.
 
-              Beyond coding, I have experience as a translator and love sharing my knowledge and learning new skill every day.
               <br />
               <br />
               <br />

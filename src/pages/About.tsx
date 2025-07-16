@@ -20,7 +20,7 @@ export default function About() {
           <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-8 text-white">About Me</h1>
           <div className="prose prose-lg max-w-none">
             <p className="text-base sm:text-lg text-white/90">
-              👋 Hi, I'm <strong>Hakim</strong>, a studying <em>computer engineering</em> with a strong interest in web development, databases, and system security. I enjoy building interactive and efficient applications using React, ASP.NET Core, and various backend technologies.
+              👋 Hi, I'm <strong>Hakim</strong>,  studying <em>computer engineering</em> with a strong interest in web development, databases, and system security. I enjoy building interactive and efficient applications using React, ASP.NET Core, and various backend technologies.
               <br></br>
               Currently, I'm preparing for the <em>TOEFL iBT</em> to expand my global opportunities.
 

@@ -12,6 +12,7 @@ import photo from '../videos/contact.jpg';
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "";
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "";
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "";
+const RECEIVING_EMAIL = import.meta.env.VITE_RECEIVING_EMAIL || "hakim.nazari.tech@gmail.com";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -41,7 +42,7 @@ export default function Contact() {
     
     try {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        to_email: "hakim.nazary@example.com",
+        to_email: RECEIVING_EMAIL,
         from_name: name,
         from_email: email,
         message: message,

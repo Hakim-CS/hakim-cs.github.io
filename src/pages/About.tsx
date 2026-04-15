@@ -1,17 +1,12 @@
 
+import { useState } from 'react'
 import photo from '../videos/me.jpeg'
 import { Button } from '@/components/ui/button'
 import { Download } from 'lucide-react'
+import { CVModal } from '@/components/cv-modal'
 
 export default function About() {
-  const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '/Nazari_CV.pdf';
-    link.download = 'Nazari_CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  const [isCVModalOpen, setIsCVModalOpen] = useState(false);
 
   return (
     <div className="relative min-h-screen pt-16 md:pt-20">
@@ -32,11 +27,11 @@ export default function About() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4 md:mb-8">
             <h1 className="text-2xl md:text-3xl font-bold text-white">About Me</h1>
             <Button 
-              onClick={handleDownloadCV}
+              onClick={() => setIsCVModalOpen(true)}
               className="flex items-center gap-2 w-full sm:w-auto"
             >
               <Download className="h-4 w-4" />
-              Download CV
+              View CV
             </Button>
           </div>
           <div className="prose prose-lg max-w-none">
@@ -53,6 +48,8 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      <CVModal isOpen={isCVModalOpen} onClose={() => setIsCVModalOpen(false)} />
     </div>
   );
 }

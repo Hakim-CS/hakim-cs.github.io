@@ -2,92 +2,98 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ThemeToggle } from "./theme-toggle";
+import { CVModal } from "./cv-modal";
 import { Menu, X } from "lucide-react";
 
 export function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCVModalOpen, setIsCVModalOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-lg border-b">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link to="/" className="text-lg font-semibold">
-          Portfolio
-        </Link>
-        
-        {/* Mobile menu button */}
-        <button 
-          className="md:hidden flex items-center"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-        
-        {/* Desktop navigation */}
-        <div className="hidden md:flex items-center gap-6">
-          <Link to="/" className="nav-link">
-            Home
+    <>
+      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-lg border-b">
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+          <Link to="/" className="text-lg font-semibold">
+            Portfolio
           </Link>
-          <Link to="/about" className="nav-link">
-            About
-          </Link>
-          <Link to="/projects" className="nav-link">
-            Projects
-          </Link>
-          <Link to="/blog" className="nav-link">
-            Blog
-          </Link>
-          <Link to="/contact" className="nav-link">
-            Contact
-          </Link>
-          <a 
-            href="/Nazari_CV.pdf" 
-            download
-            className="nav-link hover:text-primary transition-colors"
+          
+          {/* Mobile menu button */}
+          <button 
+            className="md:hidden flex items-center"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
           >
-            CV
-          </a>
-          <ThemeToggle />
-        </div>
-      </div>
-      
-      {/* Mobile navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden absolute w-full bg-background/95 backdrop-blur-lg border-b">
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <Link to="/" className="nav-link py-2" onClick={toggleMenu}>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+          
+          {/* Desktop navigation */}
+          <div className="hidden md:flex items-center gap-6">
+            <Link to="/" className="nav-link">
               Home
             </Link>
-            <Link to="/about" className="nav-link py-2" onClick={toggleMenu}>
+            <Link to="/about" className="nav-link">
               About
             </Link>
-            <Link to="/projects" className="nav-link py-2" onClick={toggleMenu}>
+            <Link to="/projects" className="nav-link">
               Projects
             </Link>
-            <Link to="/blog" className="nav-link py-2" onClick={toggleMenu}>
+            <Link to="/blog" className="nav-link">
               Blog
             </Link>
-            <Link to="/contact" className="nav-link py-2" onClick={toggleMenu}>
+            <Link to="/contact" className="nav-link">
               Contact
             </Link>
-            <a 
-              href="/Nazari_CV.pdf" 
-              download
-              className="nav-link py-2 hover:text-primary transition-colors"
-              onClick={toggleMenu}
+            <button 
+              onClick={() => setIsCVModalOpen(true)}
+              className="nav-link hover:text-primary transition-colors cursor-pointer"
             >
               CV
-            </a>
-            <div className="py-2">
-              <ThemeToggle />
-            </div>
+            </button>
+            <ThemeToggle />
           </div>
         </div>
-      )}
-    </nav>
+        
+        {/* Mobile navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute w-full bg-background/95 backdrop-blur-lg border-b">
+            <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+              <Link to="/" className="nav-link py-2" onClick={toggleMenu}>
+                Home
+              </Link>
+              <Link to="/about" className="nav-link py-2" onClick={toggleMenu}>
+                About
+              </Link>
+              <Link to="/projects" className="nav-link py-2" onClick={toggleMenu}>
+                Projects
+              </Link>
+              <Link to="/blog" className="nav-link py-2" onClick={toggleMenu}>
+                Blog
+              </Link>
+              <Link to="/contact" className="nav-link py-2" onClick={toggleMenu}>
+                Contact
+              </Link>
+              <button 
+                onClick={() => {
+                  setIsCVModalOpen(true);
+                  toggleMenu();
+                }}
+                className="nav-link py-2 hover:text-primary transition-colors text-left cursor-pointer"
+              >
+                CV
+              </button>
+              <div className="py-2">
+                <ThemeToggle />
+              </div>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      <CVModal isOpen={isCVModalOpen} onClose={() => setIsCVModalOpen(false)} />
+    </>
   );
 }

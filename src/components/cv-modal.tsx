@@ -1,6 +1,6 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Download, X } from "lucide-react";
+import { Download } from "lucide-react";
 
 interface CVModalProps {
   isOpen: boolean;
@@ -19,21 +19,13 @@ export function CVModal({ isOpen, onClose }: CVModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl w-full max-h-[90vh] flex flex-col">
-        <DialogHeader className="flex flex-row items-center justify-between">
-          <DialogTitle>My CV</DialogTitle>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={onClose}
-            className="h-6 w-6"
-          >
-            <X className="h-4 w-4" />
-          </Button>
+      <DialogContent className="max-w-7xl w-[95vw] h-[95vh] flex flex-col p-0 gap-0">
+        <DialogHeader className="px-6 py-4 border-b">
+          <DialogTitle className="text-2xl">My CV</DialogTitle>
         </DialogHeader>
         
         {/* PDF Preview */}
-        <div className="flex-1 overflow-hidden rounded-lg bg-gray-900">
+        <div className="flex-1 overflow-hidden bg-gray-950">
           <iframe
             src="/Nazari_CV.pdf"
             className="w-full h-full"
@@ -42,12 +34,13 @@ export function CVModal({ isOpen, onClose }: CVModalProps) {
         </div>
         
         {/* Download Button */}
-        <div className="flex gap-2 mt-4">
+        <div className="border-t p-4 bg-background">
           <Button
             onClick={handleDownload}
-            className="flex items-center gap-2 w-full"
+            className="flex items-center gap-2 w-full sm:w-auto"
+            size="lg"
           >
-            <Download className="h-4 w-4" />
+            <Download className="h-5 w-5" />
             Download CV
           </Button>
         </div>

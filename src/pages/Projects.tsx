@@ -3,12 +3,21 @@ import coding from '../videos/coding.jpg'
 import project1 from '../videos/project1.png'
 import project2 from '../videos/project2.png'
 import project3 from '../videos/project3.png'
+import aiFinance from '../videos/ai_finance.png'
 
 export default function Projects() {
   //project 1
   const projects = [
     {
       id: 1,
+      title: "Aura Finance - AI Finance Tracker",
+      description: "A comprehensive AI-powered personal finance management system with intelligent spending insights, automated expense tracking, and predictive budgeting. Features receipt OCR, voice input for expenses, LSTM-based budget forecasting, and group expense splitting with a modern React UI.",
+      tags: ["React", "TypeScript", "TensorFlow.js", "PostgreSQL", "Node.js", "AI/ML"],
+      link: "https://github.com/Hakim-CS/AI_Finance",
+      image: aiFinance
+    },
+    {
+      id: 2,
       title: "Crypto Trading Platform",
       description: "A web-based cryptocurrency trading platform where users can buy and sell crypto, follow market news, track portfolios, and analyze market trends in real-time. Built with React, Chart.js, and cryptocurrency APIs.",
       tags: ["Web3", "Blockchain", "React", "Trading"],
@@ -16,7 +25,7 @@ export default function Projects() {
       image: project1
     },
     {
-      id: 2,
+      id: 3,
       title: "Habit Tracker",
       description: "A web-based habit tracker application built with Streamlit, designed to help you build better routines through visualization and progress tracking. Access it from any device with a web browser!",
       tags: ["Python", "Streamlit", "Data Visualization", "Productivity"],
@@ -24,7 +33,7 @@ export default function Projects() {
       image: project2
     },
     {
-      id: 3,
+      id: 4,
       title: "Pollify - Real-time Voting System",
       description: "A real-time polling and voting application where users can create polls and gather votes instantly. Features live results, multiple voting options, and shareable poll links for easy distribution.",
       tags: ["React", "Real-time", "Firebase", "Collaborative"],

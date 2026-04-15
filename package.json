@@ -5,16 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build", 
+    "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
- 
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",

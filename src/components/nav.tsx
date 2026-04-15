@@ -44,6 +44,13 @@ export function Nav() {
           <Link to="/contact" className="nav-link">
             Contact
           </Link>
+          <a 
+            href="/Nazari_CV.pdf" 
+            download
+            className="nav-link hover:text-primary transition-colors"
+          >
+            CV
+          </a>
           <ThemeToggle />
         </div>
       </div>
@@ -67,6 +74,14 @@ export function Nav() {
             <Link to="/contact" className="nav-link py-2" onClick={toggleMenu}>
               Contact
             </Link>
+            <a 
+              href="/Nazari_CV.pdf" 
+              download
+              className="nav-link py-2 hover:text-primary transition-colors"
+              onClick={toggleMenu}
+            >
+              CV
+            </a>
             <div className="py-2">
               <ThemeToggle />
             </div>

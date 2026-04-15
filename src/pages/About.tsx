@@ -1,6 +1,18 @@
 
 import photo from '../videos/me.jpeg'
+import { Button } from '@/components/ui/button'
+import { Download } from 'lucide-react'
+
 export default function About() {
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/Nazari_CV.pdf';
+    link.download = 'Nazari_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="relative min-h-screen pt-16 md:pt-20">
       {/* Background with overlay */}
@@ -17,7 +29,16 @@ export default function About() {
 
       <div className="px-4 sm:px-6 lg:px-8 py-8 md:py-16">
         <div className="container mx-auto max-w-4xl animate-fadeIn relative z-10">
-          <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-8 text-white">About Me</h1>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4 md:mb-8">
+            <h1 className="text-2xl md:text-3xl font-bold text-white">About Me</h1>
+            <Button 
+              onClick={handleDownloadCV}
+              className="flex items-center gap-2 w-full sm:w-auto"
+            >
+              <Download className="h-4 w-4" />
+              Download CV
+            </Button>
+          </div>
           <div className="prose prose-lg max-w-none">
             <p className="text-base sm:text-lg text-white/90">
               👋 Hi, I'm <strong>Hakim</strong>,  studying <em>computer engineering</em> with a strong interest in web development, databases, and system security. I enjoy building interactive and efficient applications using React, ASP.NET Core, and various backend technologies.

@@ -1,11 +1,17 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
 import { Github, Instagram, Linkedin } from "lucide-react";
+import emailjs from '@emailjs/browser';
 import photo from '../videos/contact.jpg';
+
+// Initialize EmailJS - Get your public key from emailjs.com
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "";
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "";
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -13,16 +19,33 @@ export default function Contact() {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  useEffect(() => {
+    if (EMAILJS_PUBLIC_KEY) {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
+      toast({
+        title: "Configuration needed",
+        description: "Please set up EmailJS environment variables to send messages.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     
     try {
-      // Log the form data for verification
-      console.log("Form submission data:", { name, email, message });
-      
-      // Here you would typically send the data to a server
-      // Since we don't have a backend, we'll simulate a successful submission
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        to_email: "hakim.nazary@example.com",
+        from_name: name,
+        from_email: email,
+        message: message,
+      });
       
       // Clear the form
       setName("");

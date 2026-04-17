@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import coding from '../videos/coding_page.jpg';
+import { ArrowLeft, Calendar, Clock } from 'lucide-react';
+import { SEO } from '@/components/seo';
 
 // Blog post data structure (same as in Blog.tsx)
 interface BlogPost {
@@ -306,45 +306,40 @@ export default function BlogPost() {
   }
 
   return (
-    <div className="relative min-h-screen pt-16 md:pt-20">
-      {/* Background with overlay */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${coding})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
+    <div className="min-h-screen bg-background">
+      <SEO
+        title={`${post.title} | Hakim Nazary`}
+        description={post.excerpt}
+        path={`/blog/${post.id}`}
       />
-      <div className="absolute inset-0 bg-black/60 z-0" />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 max-w-3xl">
+        <Link to="/blog" className="inline-flex items-center gap-2 text-primary hover:text-primary-glow transition-colors mb-8 text-sm font-mono">
+          <ArrowLeft className="h-4 w-4" />
+          Back to Blog
+        </Link>
 
-      {/* Content */}
-      <div className="px-4 sm:px-6 lg:px-8 py-8 md:py-16">
-        <div className="container mx-auto animate-fadeIn relative z-10 max-w-4xl">
-          <Link to="/blog" className="inline-flex items-center text-primary hover:text-primary/80 transition-colors mb-6">
-            <svg className="w-4 h-4 mr-2 rotate-180" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            Back to Blog
-          </Link>
-          
-          <article className="bg-white/10 backdrop-blur-sm rounded-lg p-6 md:p-8">
-            <header className="mb-6">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 text-white">{post.title}</h1>
-              <div className="flex items-center text-sm text-gray-300">
+        <article className="card-elevated p-6 md:p-10">
+          <header className="mb-8 pb-6 border-b border-border">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight">
+              {post.title}
+            </h1>
+            <div className="flex items-center gap-4 text-sm text-muted-foreground font-mono">
+              <span className="inline-flex items-center gap-1.5">
+                <Calendar className="h-3.5 w-3.5" />
                 <time>{post.date}</time>
-                <span className="mx-2">•</span>
-                <span>{post.readTime}</span>
-              </div>
-            </header>
-            
-            <div 
-              className="prose prose-invert max-w-none prose-headings:text-white prose-p:text-gray-300"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
-          </article>
-        </div>
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5" />
+                {post.readTime}
+              </span>
+            </div>
+          </header>
+
+          <div
+            className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-foreground/80 prose-strong:text-foreground prose-a:text-primary prose-li:text-foreground/80 prose-code:text-primary"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+        </article>
       </div>
     </div>
   );

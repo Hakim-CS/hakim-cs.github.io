@@ -1,7 +1,8 @@
 
 import React from 'react';
-import coding from '../videos/coding_page.jpg';
 import { Link } from 'react-router-dom';
+import { ArrowRight, Calendar, Clock } from 'lucide-react';
+import { SEO } from '@/components/seo';
 
 // Blog post data structure
 interface BlogPost {
@@ -291,55 +292,55 @@ export default function Blog() {
   ];
 
   return (
-    <div className="relative min-h-screen pt-16 md:pt-20">
-      {/* Background with overlay */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${coding})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
+    <div className="min-h-screen bg-background">
+      <SEO
+        title="Blog | Hakim Nazary"
+        description="Articles on backend engineering, microservices, AI, and modern web development by Hakim Nazary."
+        path="/blog"
       />
-      <div className="absolute inset-0 bg-black/50 z-0" />
 
-      {/* Content */}
-      <div className="px-4 sm:px-6 lg:px-8 py-8 md:py-16">
-        <div className="container mx-auto animate-fadeIn relative z-10">
-          <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-8 text-white">Blog</h1>
-          <div className="grid gap-6 md:gap-8">
-            {blogPosts.map((post) => (
-              <article
-                key={post.id}
-                className="group relative overflow-hidden rounded-lg border bg-white/10 p-6 card-hover backdrop-blur-sm transition-all duration-300"
-              >
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
-                  <div className="flex-1">
-                    <Link to={`/blog/${post.id}`} className="inline-block">
-                      <h2 className="text-xl md:text-2xl font-semibold mb-2 text-white hover:text-primary transition-colors">
-                        {post.title}
-                      </h2>
-                    </Link>
-                    <div className="flex items-center text-sm text-gray-300 mb-3">
-                      <time>{post.date}</time>
-                      <span className="mx-2">•</span>
-                      <span>{post.readTime}</span>
-                    </div>
-                    <p className="text-gray-300 mb-4">
-                      {post.excerpt}
-                    </p>
-                    <Link 
-                      to={`/blog/${post.id}`} 
-                      className="inline-flex items-center text-primary hover:text-primary/80 transition-colors"
-                    >
-                      Read More
-                      <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </Link>
-                  </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="h-1 w-12 bg-gradient-primary rounded-full" />
+              <span className="text-primary text-sm font-mono font-semibold tracking-wider uppercase">
+                // Blog
+              </span>
+            </div>
+            <h1 className="text-3xl md:text-5xl font-bold text-gradient mb-3">
+              Writing & Notes
+            </h1>
+            <p className="text-muted-foreground text-lg">
+              Thoughts on backend engineering, distributed systems and the craft of software.
+            </p>
+          </div>
+
+          <div className="grid gap-5">
+            {blogPosts.map(post => (
+              <article key={post.id} className="card-elevated p-6 md:p-8 group">
+                <Link to={`/blog/${post.id}`} className="block">
+                  <h2 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors mb-3">
+                    {post.title}
+                  </h2>
+                </Link>
+                <div className="flex items-center gap-4 text-xs text-muted-foreground font-mono mb-3">
+                  <span className="inline-flex items-center gap-1.5">
+                    <Calendar className="h-3 w-3" /> {post.date}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <Clock className="h-3 w-3" /> {post.readTime}
+                  </span>
                 </div>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {post.excerpt}
+                </p>
+                <Link
+                  to={`/blog/${post.id}`}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-glow transition-colors"
+                >
+                  Read more <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
               </article>
             ))}
           </div>

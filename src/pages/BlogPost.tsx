@@ -293,17 +293,14 @@ const blogPosts: BlogPost[] = [
 export default function BlogPost() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  
-  // Find the blog post with the matching ID
-  const post = blogPosts.find(post => post.id === Number(id));
-  
-  // If no post is found, redirect to the blog page
-  if (!post) {
-    React.useEffect(() => {
-      navigate('/blog');
-    }, [navigate]);
-    return null;
-  }
+
+  const post = blogPosts.find(p => p.id === Number(id));
+
+  React.useEffect(() => {
+    if (!post) navigate('/blog');
+  }, [post, navigate]);
+
+  if (!post) return null;
 
   return (
     <div className="min-h-screen bg-background">

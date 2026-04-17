@@ -1,177 +1,143 @@
-
-import photo from '../videos/me.jpeg'
-import { Code2, Zap, Globe, Target } from 'lucide-react'
+import photo from '../videos/me.jpeg';
+import { Code2, Zap, Globe, Target } from 'lucide-react';
+import { SEO } from '@/components/seo';
 
 export default function About() {
-  const technologies = ['Go', 'PostgreSQL', 'Microservices', 'Concurrency']
+  const technologies = ['Go', 'PostgreSQL', 'Microservices', 'Concurrency'];
   const languages = [
-    { name: 'Uzbek' },
-    { name: 'English' },
-    { name: 'Turkish' },
-    { name: 'Persian' }
-  ]
+    { name: 'Uzbek',   level: 100 },
+    { name: 'English', level: 95 },
+    { name: 'Turkish', level: 85 },
+    { name: 'Persian', level: 90 },
+  ];
 
   return (
-    <div className="relative min-h-screen pt-16 md:pt-20">
-      {/* Background with overlay */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${photo})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
+    <div className="min-h-screen bg-background">
+      <SEO
+        title="About | Hakim Nazary — Backend Engineer"
+        description="Final-year Computer Engineering student & backend engineer. Building high-concurrency systems with Go, PostgreSQL and microservices."
+        path="/about"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/70 z-0" />
 
-      <div className="px-4 sm:px-6 lg:px-8 py-8 md:py-16">
-        <div className="container mx-auto max-w-4xl relative z-10">
-          {/* Header with Animation */}
-          <div className="animate-fadeIn mb-8 md:mb-12">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="h-1 w-12 bg-gradient-to-r from-primary to-transparent rounded-full"></div>
-              <span className="text-primary text-sm font-semibold tracking-wider uppercase">About</span>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <div className="max-w-4xl mx-auto">
+          {/* Header */}
+          <div className="mb-12 grid md:grid-cols-[auto_1fr] gap-8 items-center">
+            <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto md:mx-0">
+              <div className="absolute -inset-2 bg-gradient-primary rounded-full blur opacity-30" />
+              <img
+                src={photo}
+                alt="Hakim Nazary"
+                className="relative w-full h-full object-cover rounded-full border-2 border-border"
+              />
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-2">
-              <span className="bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent">
+            <div>
+              <div className="flex items-center gap-3 mb-3 justify-center md:justify-start">
+                <div className="h-1 w-12 bg-gradient-primary rounded-full" />
+                <span className="text-primary text-sm font-mono font-semibold tracking-wider uppercase">
+                  // About
+                </span>
+              </div>
+              <h1 className="text-3xl md:text-5xl font-bold text-gradient mb-2 text-center md:text-left">
                 Hi, I'm Hakim
-              </span>
-            </h1>
-            <p className="text-white/60 text-lg">Backend Engineer • Systems Architect • Problem Solver</p>
+              </h1>
+              <p className="text-muted-foreground text-lg text-center md:text-left">
+                Backend Engineer • Systems Architect • Problem Solver
+              </p>
+            </div>
           </div>
 
-          {/* Main Content with Staggered Animations */}
-          <div className="space-y-6 md:space-y-8">
-            {/* Intro Card */}
-            <div className="group animate-fadeIn" style={{ animationDelay: '0.1s' }}>
-              <div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent rounded-xl p-6 md:p-8 border border-white/20 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
-                <p className="text-base sm:text-lg text-white/90 leading-relaxed font-light">
-                  I'm a <span className="font-semibold text-white">final-year Computer Engineering student</span> currently expanding my technical perspective through an academic exchange in <span className="font-semibold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">Slovenia</span>. My primary focus is on <span className="font-semibold text-white">backend development</span> and building <span className="font-semibold text-white">high-concurrency systems</span>.
-                </p>
+          <div className="space-y-6">
+            {/* Intro */}
+            <div className="card-elevated p-6 md:p-8">
+              <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
+                I'm a <span className="font-semibold text-foreground">final-year Computer Engineering student</span> currently expanding my technical perspective through an academic exchange in <span className="font-semibold text-primary">Slovenia</span>. My primary focus is <span className="font-semibold text-foreground">backend development</span> and building <span className="font-semibold text-foreground">high-concurrency systems</span>.
+              </p>
+            </div>
+
+            {/* Technical */}
+            <div className="card-elevated p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 rounded-lg bg-primary/10 text-primary"><Code2 className="h-5 w-5" /></div>
+                <h2 className="text-xl md:text-2xl font-bold text-foreground">Technical Expertise</h2>
+              </div>
+              <p className="text-foreground/80 leading-relaxed mb-4">
+                I specialize in <span className="text-primary font-semibold">Go</span>, <span className="text-primary font-semibold">PostgreSQL</span> and <span className="text-primary font-semibold">containerized microservices</span>. My work includes:
+              </p>
+              <ul className="space-y-2.5 mb-6">
+                {[
+                  'Engineering low-latency trading bot components',
+                  'Developing AI-based finance tracker for thesis',
+                  'Implementing concurrent data pipelines',
+                ].map(item => (
+                  <li key={item} className="flex items-start gap-3 text-foreground/80">
+                    <span className="text-primary font-mono mt-0.5">→</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-2">
+                {technologies.map(tech => (
+                  <span key={tech} className="text-xs font-mono px-3 py-1 rounded-md bg-primary/10 text-primary border border-primary/20">
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
 
-            {/* Technical Expertise Card */}
-            <div className="group animate-fadeIn" style={{ animationDelay: '0.2s' }}>
-              <div className="bg-gradient-to-br from-primary/10 via-white/5 to-transparent rounded-xl p-6 md:p-8 border border-primary/30 backdrop-blur-sm hover:border-primary/60 transition-all duration-300 hover:shadow-lg hover:shadow-primary/30">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-primary/20">
-                    <Code2 className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">Technical Expertise</h3>
-                </div>
-                
-                <p className="text-base sm:text-lg text-white/90 leading-relaxed mb-4 font-light">
-                  I specialize in <span className="text-primary font-semibold">Go</span>, <span className="text-primary font-semibold">PostgreSQL</span>, and <span className="text-primary font-semibold">containerized microservices</span>. My work includes:
-                </p>
-                
-                <ul className="space-y-3 mb-6">
-                  {[
-                    'Engineering low-latency trading bot components',
-                    'Developing AI-based finance tracker for thesis',
-                    'Implementing concurrent data pipelines'
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 group/item">
-                      <span className="text-primary text-xl mt-0.5 group-hover/item:translate-x-1 transition-transform">→</span>
-                      <span className="text-white/80 group-hover/item:text-white transition-colors">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Tech Stack Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {technologies.map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 text-xs md:text-sm font-medium rounded-full bg-primary/20 text-primary border border-primary/40 hover:bg-primary/30 hover:border-primary/60 transition-all duration-300 cursor-default transform hover:scale-105"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+            {/* Philosophy */}
+            <div className="card-elevated p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 rounded-lg bg-primary/10 text-primary"><Zap className="h-5 w-5" /></div>
+                <h2 className="text-xl md:text-2xl font-bold text-foreground">Philosophy</h2>
               </div>
+              <p className="text-foreground/80 leading-relaxed">
+                I'm driven by the challenge of designing <span className="font-semibold text-foreground">scalable, efficient solutions</span>. Complex architectural and data engineering problems inspire me to build systems that perform at scale while staying clear and maintainable.
+              </p>
             </div>
 
-            {/* Philosophy Card */}
-            <div className="group animate-fadeIn" style={{ animationDelay: '0.3s' }}>
-              <div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent rounded-xl p-6 md:p-8 border border-white/20 backdrop-blur-sm hover:border-white/40 transition-all duration-300">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 rounded-lg bg-white/10">
-                    <Zap className="h-5 w-5 text-white" />
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">Philosophy</h3>
-                </div>
-                <p className="text-base sm:text-lg text-white/90 leading-relaxed font-light">
-                  I'm driven by the challenge of designing <span className="font-semibold text-white">scalable, efficient solutions</span>. Complex architectural and data engineering problems inspire me to build systems that perform at scale while maintaining clarity and maintainability.
-                </p>
+            {/* Languages */}
+            <div className="card-elevated p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 rounded-lg bg-primary/10 text-primary"><Globe className="h-5 w-5" /></div>
+                <h2 className="text-xl md:text-2xl font-bold text-foreground">Languages & Global Perspective</h2>
               </div>
-            </div>
-
-            {/* Languages Card */}
-            <div className="group animate-fadeIn" style={{ animationDelay: '0.4s' }}>
-              <div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent rounded-xl p-6 md:p-8 border border-white/20 backdrop-blur-sm hover:border-white/40 transition-all duration-300">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2 rounded-lg bg-white/10">
-                    <Globe className="h-5 w-5 text-white" />
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">Languages & Global Perspective</h3>
-                </div>
-                
-                <p className="text-base sm:text-lg text-white/90 leading-relaxed mb-6 font-light">
-                  I'm <span className="font-semibold text-white">fluent in four languages</span>, thriving in international, collaborative environments where diverse perspectives drive innovation.
-                </p>
-
-                {/* Language Bars */}
-                <div className="space-y-4">
-                  {languages.map((lang, idx) => (
-                    <div key={idx} className="group/lang">
-                      <div className="flex justify-between mb-2">
-                        <span className="text-white font-medium">{lang.name}</span>
-                      </div>
-                      <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                        <div 
-                          className="h-full bg-gradient-to-r from-primary to-primary/60 rounded-full transform origin-left transition-all duration-700 ease-out"
-                          style={{
-                            width: '0%',
-                            animation: `slideIn 0.8s ease-out ${0.1 * idx}s forwards`
-                          }}
-                        ></div>
-                      </div>
+              <p className="text-foreground/80 leading-relaxed mb-6">
+                I'm <span className="font-semibold text-foreground">fluent in four languages</span>, thriving in international, collaborative environments where diverse perspectives drive innovation.
+              </p>
+              <div className="space-y-4">
+                {languages.map(lang => (
+                  <div key={lang.name}>
+                    <div className="flex justify-between mb-2">
+                      <span className="text-foreground font-medium">{lang.name}</span>
+                      <span className="text-muted-foreground font-mono text-sm">{lang.level}%</span>
                     </div>
-                  ))}
-                </div>
+                    <div className="h-2 bg-muted rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-primary rounded-full transition-all duration-700"
+                        style={{ width: `${lang.level}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* CTA Card */}
-            <div className="group animate-fadeIn" style={{ animationDelay: '0.5s' }}>
-              <div className="bg-gradient-to-r from-primary/20 via-primary/10 to-transparent rounded-xl p-6 md:p-8 border border-primary/40 backdrop-blur-sm hover:border-primary/70 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
-                <div className="flex items-center gap-3 mb-3">
-                  <Target className="h-6 w-6 text-primary animate-pulse" />
-                  <p className="text-lg md:text-xl font-semibold bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-                    Let's Build Something Exceptional
-                  </p>
-                </div>
-                <p className="text-white/80 font-light">
-                  I'm always interested in collaborating on challenging problems that push the boundaries of what's possible in backend systems and data engineering.
+            {/* CTA */}
+            <div className="card-elevated p-6 md:p-8 bg-primary/5 border-primary/30">
+              <div className="flex items-center gap-3 mb-3">
+                <Target className="h-6 w-6 text-primary" />
+                <p className="text-lg md:text-xl font-bold text-foreground">
+                  Let's Build Something Exceptional
                 </p>
               </div>
+              <p className="text-foreground/80">
+                I'm always interested in collaborating on challenging problems that push the boundaries of backend systems and data engineering.
+              </p>
             </div>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes slideIn {
-          from {
-            width: 0%;
-          }
-          to {
-            width: 100%;
-          }
-        }
-      `}</style>
     </div>
   );
 }

@@ -1,52 +1,80 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
+    /* Light mode — clean, professional */
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 222 20% 11%;
+
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 222 20% 11%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    --popover-foreground: 222 20% 11%;
+
+    /* Primary: signature emerald (backend / terminal vibe) */
+    --primary: 158 64% 42%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 158 70% 55%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 20% 11%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 158 64% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 158 64% 42%;
+
     --radius: 0.75rem;
+
+    /* Reusable design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 6%) 0%, hsl(222 47% 11%) 50%, hsl(158 30% 12%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--foreground) / 0.6) 100%);
+    --shadow-glow: 0 0 40px -10px hsl(var(--primary) / 0.5);
+    --shadow-elegant: 0 20px 50px -20px hsl(222 47% 6% / 0.4);
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 158 70% 52%;
+    --primary-foreground: 222 47% 5%;
+    --primary-glow: 158 80% 65%;
+
+    --secondary: 222 33% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 33% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 158 70% 52%;
+    --accent-foreground: 222 47% 5%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 33% 15%;
+    --input: 222 33% 15%;
+    --ring: 158 70% 52%;
   }
 }
 
@@ -54,58 +82,86 @@
   * {
     @apply border-border;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground antialiased overflow-x-hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
   }
-}
-
-.glass {
-  @apply backdrop-blur-lg bg-white/10 border border-white/20;
-}
-
-.section-padding {
-  @apply py-8 md:py-16 px-4 sm:px-6 lg:px-8;
-}
-
-.card-hover {
-  @apply transition-all duration-300 hover:scale-[1.02] md:hover:scale-[1.05];
-}
-
-.nav-link {
-  @apply relative text-foreground/90 hover:text-foreground transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-foreground after:transition-all hover:after:w-full;
-}
-
-/* Responsive Utilities */
-@media (max-width: 640px) {
-  h1 {
-    @apply text-2xl;
-  }
-  h2 {
-    @apply text-xl;
-  }
-  h3 {
-    @apply text-lg;
-  }
-  p {
-    @apply text-base;
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
   }
 }
 
-/* Animations optimized for mobile */
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl bg-background/40 border border-border/50;
+  }
+  .glass-dark {
+    @apply backdrop-blur-xl bg-foreground/5 border border-foreground/10;
+  }
+  .section-padding {
+    @apply py-16 md:py-24 px-4 sm:px-6 lg:px-8;
+  }
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .nav-link {
+    @apply relative text-foreground/70 hover:text-foreground transition-colors after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all hover:after:w-full;
+  }
+  .card-elevated {
+    @apply bg-card border border-border rounded-xl transition-all duration-300 hover:border-primary/40 hover:shadow-[var(--shadow-elegant)];
+  }
+}
+
+/* Page transition */
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-transition {
+  animation: pageEnter 0.4s var(--transition-smooth) both;
+}
+
+/* Terminal blink cursor */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Subtle grid background */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, hsl(var(--foreground) / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--foreground) / 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Reduced motion */
 @media (prefers-reduced-motion) {
-  .animate-fadeIn, 
-  .animate-slideIn, 
-  .animate-float {
+  .animate-fadeIn,
+  .animate-slideIn,
+  .animate-float,
+  .page-transition,
+  .cursor-blink {
     animation: none !important;
   }
 }
 
-/* Fix for video backgrounds on mobile */
 @media (max-width: 768px) {
-  video {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  }
+  video { object-fit: cover; height: 100%; width: 100%; }
 }

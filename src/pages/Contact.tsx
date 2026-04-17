@@ -1,18 +1,23 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
-import { Github, Instagram, Linkedin } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail, MapPin } from "lucide-react";
 import emailjs from '@emailjs/browser';
-import photo from '../videos/contact.jpg';
+import { SEO } from "@/components/seo";
 
-// Initialize EmailJS - Get your public key from emailjs.com
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "";
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "";
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "";
 const RECEIVING_EMAIL = import.meta.env.VITE_RECEIVING_EMAIL || "hakim.nazari.tech@gmail.com";
+
+const socials = [
+  { label: "GitHub",    href: "https://github.com/hakim-cs",            icon: Github,    handle: "@hakim-cs" },
+  { label: "LinkedIn",  href: "https://www.linkedin.com/in/hakim-nazary/", icon: Linkedin, handle: "hakim-nazary" },
+  { label: "Instagram", href: "https://instagram.com/its_hakimn",       icon: Instagram, handle: "@its_hakimn" },
+  { label: "Email",     href: "mailto:hakim.nazari.tech@gmail.com",     icon: Mail,      handle: "hakim.nazari.tech@gmail.com" },
+];
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -21,14 +26,11 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    if (EMAILJS_PUBLIC_KEY) {
-      emailjs.init(EMAILJS_PUBLIC_KEY);
-    }
+    if (EMAILJS_PUBLIC_KEY) emailjs.init(EMAILJS_PUBLIC_KEY);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
       toast({
         title: "Configuration needed",
@@ -37,9 +39,7 @@ export default function Contact() {
       });
       return;
     }
-
     setIsSubmitting(true);
-    
     try {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         to_email: RECEIVING_EMAIL,
@@ -47,17 +47,8 @@ export default function Contact() {
         from_email: email,
         message: message,
       });
-      
-      // Clear the form
-      setName("");
-      setEmail("");
-      setMessage("");
-      
-      // Show success message
-      toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
+      setName(""); setEmail(""); setMessage("");
+      toast({ title: "Message sent!", description: "Thanks — I'll get back to you soon." });
     } catch (error) {
       console.error("Error sending message:", error);
       toast({
@@ -71,87 +62,90 @@ export default function Contact() {
   };
 
   return (
-    <div className="relative min-h-screen pt-16 md:pt-20">
-      {/* Background with overlay */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${photo})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
+    <div className="min-h-screen bg-background">
+      <SEO
+        title="Contact | Hakim Nazary"
+        description="Get in touch with Hakim Nazary — backend engineer. Available for collaborations, freelance and full-time opportunities."
+        path="/contact"
       />
-      <div className="absolute inset-0 bg-black/50 z-0" />
 
-      <div className="px-4 sm:px-6 lg:px-8 py-8 md:py-16">
-        <div className="container mx-auto max-w-xl animate-fadeIn relative z-10">
-          <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-8 text-white">Get in Touch</h1>
-          
-          {/* Social Links */}
-          <div className="flex flex-wrap gap-4 mb-6 md:mb-8">
-            <a
-              href="https://instagram.com/its_hakimn"
-              target="_blank"
-              rel="noopener noreferrer" 
-              className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
-            >
-              <Instagram className="h-5 w-5" />
-              <span>Instagram</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/hakim-nazary/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
-            >
-              <Linkedin className="h-5 w-5" />
-              <span>LinkedIn</span>
-            </a>
-            <a
-              href="https://github.com/hakim-cs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
-            >
-              <Github className="h-5 w-5" />
-              <span>GitHub</span>
-            </a>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <div className="max-w-4xl mx-auto">
+          {/* Header */}
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="h-1 w-12 bg-gradient-primary rounded-full" />
+              <span className="text-primary text-sm font-mono font-semibold tracking-wider uppercase">
+                // Contact
+              </span>
+            </div>
+            <h1 className="text-3xl md:text-5xl font-bold text-gradient mb-3">
+              Let's build something
+            </h1>
+            <p className="text-muted-foreground text-lg max-w-xl">
+              Have a project, role or idea you'd like to discuss? I'd love to hear from you.
+            </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-            <div>
-              <Input 
-                placeholder="Your Name" 
-                className="bg-white/10 border-white/20 text-white"
-                value={name}
-                onChange={(e) => setName(e.target.value)} 
-                required 
-              />
-            </div>
-            <div>
-              <Input 
-                type="email" 
-                placeholder="Your Email" 
-                className="bg-white/10 border-white/20 text-white"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)} 
-                required 
-              />
-            </div>
-            <div>
-              <Textarea
-                placeholder="Your Message"
-                className="min-h-[120px] md:min-h-[150px] bg-white/10 border-white/20 text-white"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-              />
-            </div>
-            <Button type="submit" className="w-full" disabled={isSubmitting}>
-              {isSubmitting ? "Sending..." : "Send Message"}
-            </Button>
-          </form>
+          <div className="grid md:grid-cols-5 gap-8">
+            {/* Sidebar */}
+            <aside className="md:col-span-2 space-y-3">
+              <div className="card-elevated p-5">
+                <div className="flex items-center gap-2 text-muted-foreground mb-1">
+                  <MapPin className="h-4 w-4" />
+                  <span className="text-xs font-mono uppercase tracking-wider">Location</span>
+                </div>
+                <p className="text-foreground font-semibold">Slovenia 🇸🇮</p>
+                <p className="text-sm text-muted-foreground mt-1">Open to remote worldwide</p>
+              </div>
+
+              {socials.map(s => {
+                const Icon = s.icon;
+                return (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card-elevated p-4 flex items-center gap-3 group"
+                  >
+                    <div className="p-2.5 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                      <Icon className="h-4 w-4" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="text-foreground font-semibold text-sm">{s.label}</div>
+                      <div className="text-xs font-mono text-muted-foreground truncate">{s.handle}</div>
+                    </div>
+                  </a>
+                );
+              })}
+            </aside>
+
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="md:col-span-3 card-elevated p-6 md:p-8 space-y-5">
+              <div>
+                <label htmlFor="name" className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2 block">
+                  Name
+                </label>
+                <Input id="name" placeholder="Your name" value={name} onChange={e => setName(e.target.value)} required />
+              </div>
+              <div>
+                <label htmlFor="email" className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2 block">
+                  Email
+                </label>
+                <Input id="email" type="email" placeholder="you@example.com" value={email} onChange={e => setEmail(e.target.value)} required />
+              </div>
+              <div>
+                <label htmlFor="message" className="text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2 block">
+                  Message
+                </label>
+                <Textarea id="message" placeholder="Tell me about your project or opportunity…" className="min-h-[160px]" value={message} onChange={e => setMessage(e.target.value)} required />
+              </div>
+              <Button type="submit" className="w-full shadow-glow" size="lg" disabled={isSubmitting}>
+                {isSubmitting ? "Sending…" : "Send Message"}
+              </Button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

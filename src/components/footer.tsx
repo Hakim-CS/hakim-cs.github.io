@@ -36,7 +36,7 @@ export function Footer() {
             <p className="text-muted-foreground text-sm leading-relaxed mb-3">
               Backend engineer crafting scalable systems and solving complex problems with code.
             </p>
-            <p className="text-muted-foreground text-xs font-mono">📍 Slovenia 🇸🇮</p>
+            <p className="text-muted-foreground text-xs font-mono">📍 Dresden, Germany 🇩🇪</p>
           </div>
 
           <div>

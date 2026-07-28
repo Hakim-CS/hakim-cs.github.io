@@ -3,19 +3,20 @@ import { Code2, Zap, Globe, Target } from 'lucide-react';
 import { SEO } from '@/components/seo';
 
 export default function About() {
-  const technologies = ['Go', 'PostgreSQL', 'Microservices', 'Concurrency'];
+  const technologies = ['Go', 'PostgreSQL', 'Microservices', 'Concurrency', 'AI Systems'];
   const languages = [
     { name: 'Uzbek',   level: 100 },
     { name: 'English', level: 95 },
     { name: 'Turkish', level: 85 },
     { name: 'Persian', level: 90 },
+    { name: 'German',  level: 35, note: 'Learning' },
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <SEO
         title="About | Hakim Nazary — Backend Engineer"
-        description="Final-year Computer Engineering student & backend engineer. Building high-concurrency systems with Go, PostgreSQL and microservices."
+        description="Computer Engineering graduate and backend engineer. Currently interning at TU Dresden in AI research & digital transformation, learning German and seeking new opportunities."
         path="/about"
       />
 
@@ -51,7 +52,7 @@ export default function About() {
             {/* Intro */}
             <div className="card-elevated p-6 md:p-8">
               <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
-                I'm a <span className="font-semibold text-foreground">final-year Computer Engineering student</span> currently expanding my technical perspective through an academic exchange in <span className="font-semibold text-primary">Slovenia</span>. My primary focus is <span className="font-semibold text-foreground">backend development</span> and building <span className="font-semibold text-foreground">high-concurrency systems</span>.
+                I'm a <span className="font-semibold text-foreground">Computer Engineering graduate</span> currently completing my mandatory final internship at <span className="font-semibold text-primary">TU Dresden</span>, where I work on <span className="font-semibold text-foreground">AI research and digital transformation</span>. My primary focus is <span className="font-semibold text-foreground">backend development</span> and building <span className="font-semibold text-foreground">high-concurrency systems</span>. I'm learning German every day and preparing to pursue my master's degree.
               </p>
             </div>
 
@@ -69,6 +70,7 @@ export default function About() {
                   'Engineering low-latency trading bot components',
                   'Developing AI-based finance tracker for thesis',
                   'Implementing concurrent data pipelines',
+                  'Exploring AI research and digital transformation at TU Dresden',
                 ].map(item => (
                   <li key={item} className="flex items-start gap-3 text-foreground/80">
                     <span className="text-primary font-mono mt-0.5">→</span>
@@ -103,14 +105,14 @@ export default function About() {
                 <h2 className="text-xl md:text-2xl font-bold text-foreground">Languages & Global Perspective</h2>
               </div>
               <p className="text-foreground/80 leading-relaxed mb-6">
-                I'm <span className="font-semibold text-foreground">fluent in four languages</span>, thriving in international, collaborative environments where diverse perspectives drive innovation.
+                I'm <span className="font-semibold text-foreground">fluent in four languages</span> and actively learning German while living in Dresden. I thrive in international, collaborative environments where diverse perspectives drive innovation.
               </p>
               <div className="space-y-4">
                 {languages.map(lang => (
                   <div key={lang.name}>
                     <div className="flex justify-between mb-2">
                       <span className="text-foreground font-medium">{lang.name}</span>
-                      <span className="text-muted-foreground font-mono text-sm">{lang.level}%</span>
+                      <span className="text-muted-foreground font-mono text-sm">{lang.note || `${lang.level}%`}</span>
                     </div>
                     <div className="h-2 bg-muted rounded-full overflow-hidden">
                       <div

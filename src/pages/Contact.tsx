@@ -65,7 +65,7 @@ export default function Contact() {
     <div className="min-h-screen bg-background">
       <SEO
         title="Contact | Hakim Nazary"
-        description="Get in touch with Hakim Nazary — backend engineer. Available for collaborations, freelance and full-time opportunities."
+        description="Get in touch with Hakim Nazary — Computer Engineering graduate and backend engineer interning at TU Dresden. Open to full-time and internship opportunities."
         path="/contact"
       />
 
@@ -83,7 +83,7 @@ export default function Contact() {
               Let's build something
             </h1>
             <p className="text-muted-foreground text-lg max-w-xl">
-              Have a project, role or idea you'd like to discuss? I'd love to hear from you.
+              I'm currently seeking backend engineering opportunities. Have a role, project or idea you'd like to discuss? I'd love to hear from you.
             </p>
           </div>
 
@@ -95,8 +95,8 @@ export default function Contact() {
                   <MapPin className="h-4 w-4" />
                   <span className="text-xs font-mono uppercase tracking-wider">Location</span>
                 </div>
-                <p className="text-foreground font-semibold">Slovenia 🇸🇮</p>
-                <p className="text-sm text-muted-foreground mt-1">Open to remote worldwide</p>
+                <p className="text-foreground font-semibold">Dresden, Germany 🇩🇪</p>
+                <p className="text-sm text-muted-foreground mt-1">Open to relocation & remote</p>
               </div>
 
               {socials.map(s => {

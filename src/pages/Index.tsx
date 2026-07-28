@@ -29,7 +29,7 @@ export default function Index() {
     <div className="bg-background">
       <SEO
         title="Hakim Nazary | Backend Engineer & Systems Architect"
-        description="Backend engineer specializing in Go, PostgreSQL, microservices and high-concurrency systems. Building scalable, AI-powered applications."
+        description="Computer Engineering graduate and backend engineer interning at TU Dresden in AI research & digital transformation. Seeking backend engineering opportunities."
         path="/"
         jsonLd={jsonLd}
       />
@@ -48,7 +48,7 @@ export default function Index() {
             <div className="animate-fadeIn">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 text-xs font-mono rounded-full glass-dark text-primary border border-primary/30">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                Available for opportunities
+                Seeking backend engineering opportunities
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground">
@@ -58,7 +58,7 @@ export default function Index() {
               </h1>
 
               <p className="text-base md:text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
-                I'm <span className="text-foreground font-semibold">Hakim</span> — a backend engineer focused on Go, PostgreSQL, microservices and AI-powered applications. From low-latency trading bots to distributed data pipelines.
+                I'm <span className="text-foreground font-semibold">Hakim</span> — a Computer Engineering graduate and backend engineer currently interning at <span className="text-foreground font-semibold">TU Dresden</span> in AI research & digital transformation. I build with Go, PostgreSQL, microservices and AI-powered systems, and I'm open to new opportunities.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-10">

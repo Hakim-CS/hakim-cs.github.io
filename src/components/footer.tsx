@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Instagram, Mail, ArrowUp, Code2 } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUp, Code2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function Footer() {
@@ -17,7 +17,6 @@ export function Footer() {
   const socialLinks = [
     { label: 'GitHub',    href: 'https://github.com/hakim-cs',                   icon: Github },
     { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/hakim-nazary/',     icon: Linkedin },
-    { label: 'Instagram', href: 'https://instagram.com/its_hakimn',              icon: Instagram },
     { label: 'Email',     href: 'mailto:hakim.nazari.tech@gmail.com',            icon: Mail },
   ];
 
@@ -77,7 +76,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-center md:text-left">
             <p className="text-muted-foreground text-sm">
-              © {currentYear} Abdul Hakim Nazary. All rights reserved.
+              © {currentYear} Hakim. All rights reserved.
             </p>
             <p className="text-muted-foreground/60 text-xs mt-1 font-mono">
               Built with React · TypeScript · Tailwind

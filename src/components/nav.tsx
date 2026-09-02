@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./theme-toggle";
-import { CVModal } from "./cv-modal";
 import { Menu, X, Code2 } from "lucide-react";
 
 const links = [
@@ -14,7 +13,6 @@ const links = [
 
 export function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isCVModalOpen, setIsCVModalOpen] = useState(false);
   const { pathname } = useLocation();
 
   const close = () => setIsMenuOpen(false);
@@ -49,12 +47,6 @@ export function Nav() {
                 {l.label}
               </Link>
             ))}
-            <button
-              onClick={() => setIsCVModalOpen(true)}
-              className="nav-link text-sm cursor-pointer"
-            >
-              CV
-            </button>
             <ThemeToggle />
           </div>
         </div>
@@ -67,12 +59,6 @@ export function Nav() {
                   {l.label}
                 </Link>
               ))}
-              <button
-                onClick={() => { setIsCVModalOpen(true); close(); }}
-                className="nav-link py-2 text-left cursor-pointer"
-              >
-                CV
-              </button>
               <div className="py-2">
                 <ThemeToggle />
               </div>
@@ -80,8 +66,6 @@ export function Nav() {
           </div>
         )}
       </nav>
-
-      <CVModal isOpen={isCVModalOpen} onClose={() => setIsCVModalOpen(false)} />
     </>
   );
 }

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
-import { Github, Instagram, Linkedin, Mail, MapPin } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import emailjs from '@emailjs/browser';
 import { SEO } from "@/components/seo";
 
@@ -15,7 +15,6 @@ const RECEIVING_EMAIL = import.meta.env.VITE_RECEIVING_EMAIL || "hakim.nazari.te
 const socials = [
   { label: "GitHub",    href: "https://github.com/hakim-cs",            icon: Github,    handle: "@hakim-cs" },
   { label: "LinkedIn",  href: "https://www.linkedin.com/in/hakim-nazary/", icon: Linkedin, handle: "hakim-nazary" },
-  { label: "Instagram", href: "https://instagram.com/its_hakimn",       icon: Instagram, handle: "@its_hakimn" },
   { label: "Email",     href: "mailto:hakim.nazari.tech@gmail.com",     icon: Mail,      handle: "hakim.nazari.tech@gmail.com" },
 ];
 

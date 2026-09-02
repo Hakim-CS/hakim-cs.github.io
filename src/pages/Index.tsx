@@ -1,10 +1,27 @@
+import { useEffect, useRef } from "react";
 import { SkillsSection } from "@/components/skills-section";
+import { TypingTerminal } from "@/components/typing-terminal";
+import { TechTicker } from "@/components/tech-ticker";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Github, Terminal, Sparkles } from "lucide-react";
+import { ArrowRight, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/seo";
 
 export default function Index() {
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el) return;
+    const onMove = (e: MouseEvent) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+      el.style.setProperty("--my", `${e.clientY - r.top}px`);
+    };
+    el.addEventListener("mousemove", onMove);
+    return () => el.removeEventListener("mousemove", onMove);
+  }, []);
+
   const stats = [
     { value: "5+", label: "Projects Shipped" },
     { value: "4", label: "Languages Spoken" },
@@ -35,25 +52,35 @@ export default function Index() {
       />
 
       {/* Hero Section */}
-      <section className="relative min-h-[calc(100vh-4rem)] flex items-center overflow-hidden bg-gradient-hero">
-        {/* Grid background */}
+      <section
+        ref={heroRef}
+        className="relative min-h-[calc(100vh-4rem)] flex items-center overflow-hidden bg-gradient-hero noise"
+      >
         <div className="absolute inset-0 bg-grid opacity-40" />
-        {/* Glow */}
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-primary-glow/20 rounded-full blur-[120px]" />
+        {/* Mouse-tracked phosphor glow */}
+        <div
+          className="pointer-events-none absolute inset-0 transition-opacity duration-500"
+          style={{
+            background:
+              "radial-gradient(420px circle at var(--mx, 20%) var(--my, 30%), hsl(var(--primary) / 0.14), transparent 70%)",
+          }}
+        />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left: copy */}
             <div className="animate-fadeIn">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 text-xs font-mono rounded-full glass-dark text-primary border border-primary/30">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-8 text-[11px] font-mono uppercase tracking-[0.18em] rounded-none border-l-2 border-primary bg-primary/10 text-primary">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 Seeking backend engineering opportunities
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground">
                 Building{" "}
-                <span className="text-gradient-primary">scalable systems</span>{" "}
+                <span className="relative inline-block text-gradient-primary">
+                  scalable systems
+                  <span className="absolute -bottom-1 left-0 h-[3px] w-full bg-gradient-primary opacity-60" />
+                </span>{" "}
                 that quietly handle the load.
               </h1>
 
@@ -96,49 +123,15 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Right: terminal mockup */}
+            {/* Right: live terminal */}
             <div className="animate-fadeIn hidden lg:block" style={{ animationDelay: "0.2s" }}>
-              <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-primary rounded-2xl blur opacity-30" />
-                <div className="relative card-elevated bg-card/80 backdrop-blur-xl overflow-hidden">
-                  {/* Terminal header */}
-                  <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-muted/30">
-                    <div className="flex gap-1.5">
-                      <div className="w-3 h-3 rounded-full bg-destructive/70" />
-                      <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                      <div className="w-3 h-3 rounded-full bg-primary/70" />
-                    </div>
-                    <div className="flex-1 text-center text-xs font-mono text-muted-foreground flex items-center justify-center gap-2">
-                      <Terminal className="h-3 w-3" />
-                      hakim@portfolio:~
-                    </div>
-                  </div>
-                  {/* Terminal body */}
-                  <div className="p-6 font-mono text-sm leading-relaxed">
-                    <div className="text-muted-foreground">$ <span className="text-primary">whoami</span></div>
-                    <div className="text-foreground mb-3">abdul-hakim-nazary</div>
-
-                    <div className="text-muted-foreground">$ <span className="text-primary">cat</span> stack.json</div>
-                    <pre className="text-foreground mb-3 text-xs">{`{
-  "languages": ["Go", "Python", "Java"],
-  "databases": ["PostgreSQL", "MS SQL"],
-  "tools": ["Docker", "Git", "REST"],
-  "focus": "high-concurrency systems"
-}`}</pre>
-
-                    <div className="text-muted-foreground">$ <span className="text-primary">echo</span> $STATUS</div>
-                    <div className="text-primary flex items-center">
-                      <Sparkles className="h-3 w-3 mr-1.5" />
-                      shipping_things
-                      <span className="cursor-blink ml-1">▋</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <TypingTerminal />
             </div>
           </div>
         </div>
       </section>
+
+      <TechTicker />
 
       {/* Skills Section */}
       <SkillsSection />

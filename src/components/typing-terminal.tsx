@@ -67,13 +67,13 @@ export function TypingTerminal() {
           className="p-6 font-mono text-[13px] leading-relaxed h-[340px] overflow-hidden text-primary/90"
         >
           {rendered.map((l, i) => (
-            <div key={i} className={l.muted ? "text-muted-foreground" : "text-foreground/90"}>
+            <div key={i} className={`whitespace-pre ${l.muted ? "text-muted-foreground" : "text-foreground/90"}`}>
               {l.prompt && <span className="text-primary mr-1.5">❯</span>}
               {l.text}
             </div>
           ))}
           {current && (
-            <div className={current.muted ? "text-muted-foreground" : "text-foreground/90"}>
+            <div className={`whitespace-pre ${current.muted ? "text-muted-foreground" : "text-foreground/90"}`}>
               {current.prompt && <span className="text-primary mr-1.5">❯</span>}
               {typed}
               <span className="cursor-blink text-primary">▋</span>
